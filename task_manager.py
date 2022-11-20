@@ -51,11 +51,13 @@ while True:
         print("You entered the incorrect username and password.")
 
  # while loop that iterates the menu until the user logs out by typing in 'e'
-#
 while True:
+    # admin boolean assigned to False
     admin = False
+    # compares the admin credentials. If the admin logs on the admin boolean turns to True
     if input_user == "admin" and input_password == "adm1n":
         admin = True
+    # if menu shows additional 's' and 'r' features only admin user can see
     if admin:
         menu = input("Select one of the following Options below:\n"
                     "s - Statistics\n"
@@ -65,16 +67,20 @@ while True:
                     "vm - View my task\n"
                     "e - Exit\n".lower())
 
+        # reads and prints the length of lines in user.txt, which represents the amount of users
         if menu.lower() == "s":
             with open("user.txt", "r") as f:
-                x = len(f.readlines())
-                print(f"________________________________________\nThere are a total of {x} registered users.\n_________"
+                total_users = len(f.readlines())
+                print(f"________________________________________\nThere are a total of {total_users} registered users.\n_________"
                 f"_______________________________")
 
-        with open("tasks.txt", "r") as f:
-            y = len(f.readlines())
-            print(f"________________________________________\nThere are a total of {y} registered tasks.\n_________"
+            #reads and prints the length of lines in tasks.txt, which represents the amount of tasks
+            with open("tasks.txt", "r") as f:
+                total_tasks = len(f.readlines())
+                print(f"________________________________________\nThere are a total of {total_tasks} registered tasks.\n_________"
                           f"_______________________________")
+            # continue loop will go back to the beginning of the While loop
+            continue
 
         # if user inputs 'r' to register a new user they will be asked to input the new user and password
         if menu.lower() == "r":
@@ -96,7 +102,11 @@ while True:
                 # for loop iterates for each appended new user and writes this into the txt file
                 for new_user in new_user_list:
                     f.write(f"{new_user_name}, {new_user_password}\n")
+                # continue goes back to the beginning of the while loop
+                continue
 
+    # admin boolean is False if the input does not match the admin credentials
+    # this gives a slimmed down version of the menu to other users
     elif input_user != "admin" and input_user != "adm1n":
         admin = False
         if admin == False:
@@ -107,9 +117,7 @@ while True:
             "vm - View my task\n"
             "e - Exit\n".lower())
 
-
-
-    if menu == 'a':
+    if menu.lower() == 'a':
     # variables needed to register a new task
         new_task_username = input("Enter the username of whom the task will be assigned to: ")
         new_task_title = input("Enter a title for the task: ")
@@ -131,7 +139,7 @@ while True:
             for new_task_information in new_task_information_list:
                 f.write(f"{new_task_information}\n")
 
-    elif menu == 'va':
+    elif menu.lower() == 'va':
         # with tasks open set to r to read
         with open('tasks.txt', 'r') as f:
             # indexing of the read txt file to create new variables
@@ -160,7 +168,7 @@ while True:
                 for read_task in read_task_list:
                     print(f"{read_task}\n")
 
-    elif menu == 'vm':
+    elif menu.lower() == 'vm':
         # with open task set as r to read
          with open('tasks.txt', 'r') as f:
             # for loop reads, strips and splits every line and then uses indexing to create variables with specific info
@@ -191,7 +199,7 @@ while True:
                     # for loop prints every read_task variable for each task that is assigned to the logged in user
                     for read_task in read_task_list:
                         print(f"{read_task}\n")
-    elif menu == 'e':
+    elif menu.lower() == 'e':
         print('Goodbye!')
         exit()
 
