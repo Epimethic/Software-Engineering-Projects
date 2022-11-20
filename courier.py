@@ -87,7 +87,7 @@ else:
 
 # Python will then print out the statement "Your total amount to buy and send the package is: R delivery_cost
 # The delivery cost has been rounded to 2 decimal places"
-print(f"Your total amount to buy and send the package is: R{round(delivery_cost, 2)}")
+print(f"Your total amount to buy and send the package is: £{round(delivery_cost, 2)}")
 
 
 
