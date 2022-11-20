@@ -3,7 +3,7 @@ Python Projects - These are some python programs I have taught myself whilst lea
 
 I am teaching myself how to code and these are the programs that I have created so far.
 
-courier.py calculates the shipping cost of sending a parcel overseas. It asks: the user how far the parcel needs to travel in km; if they want to send by sea or air; 
+courier.py calculates the shipping cost of sending a parcel overseas. It asks the user: how far the parcel needs to travel in km; if they want to send by sea or air; 
 and if they want full insurance. It then produces a final cost.
 
 task_manager.py is a program that registers and stores usernames and passwords onto a system and lets each user add a new task, view all tasks and view their own tasks.
